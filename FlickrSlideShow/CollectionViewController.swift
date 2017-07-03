@@ -7,58 +7,68 @@
 //
 
 import UIKit
+import CollieGallery
 
 private let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
     
-    fileprivate let borderWidth: CGFloat = 3.0
+    fileprivate let borderWidth: CGFloat = 0.0
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 10.0, bottom: 50.0, right: 10.0)
     fileprivate let itemsPerRow: CGFloat = 3
     
     var arrayOfImage = [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]
+    var arrayOfFlkrData : [FlickrFeedItem] = []
+    
+    
+    var pictures = [CollieGalleryPicture]()
+    
+    let url = "https://www.flickr.com/photos/115319555@N06/35644941946/"
+    let picture = CollieGalleryPicture(url: url)
+    pictures.append(picture)
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
       
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         
-        
+        //loadShots(page: pageNum)
   
     }
 
-//    func getFlickrPhotos()
-//    {
-//        let manager :AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
-//        let url :String = "https://api.flickr.com/services/rest/"
-//        let parameters :Dictionary = [
-//            "method"         : "flickr.interestingness.getList",
-//            "api_key"        : "86997f23273f5a518b027e2c8c019b0f",
-//            "per_page"       : "99",
-//            "format"         : "json",
-//            "nojsoncallback" : "1",
-//            "extras"         : "url_q,url_z",
-//            ]
-//        let requestSuccess = {
-//            (operation :AFHTTPRequestOperation!, responseObject :AnyObject!) -> Void in
-//            SVProgressHUD.dismiss()
-//            self.photos = responseObject.objectForKey("photos").objectForKey("photo") as Array
-//            self.collectionView.reloadData()
-//            NSLog("requestSuccess \(responseObject)")
-//        }
-//        let requestFailure = {
-//            (operation :AFHTTPRequestOperation!, error :NSError!) -> Void in
-//            SVProgressHUD.dismiss()
-//            NSLog("requestFailure: \(error)")
-//        }
-//        SVProgressHUD.show()
-//        manager.GET(url, parameters: parameters, success: requestSuccess, failure: requestFailure)
-//    }
-  
+    var loadMoreStatus = false
+    var pageNum = 1
+    
+    func loadShots(page: Int) {
+        if !loadMoreStatus {
+            loadMoreStatus = true
+            pageNum += 1
+            
+            FlickrServices.instance.getShotsFeed(page: page, successCallback: {[weak self] feedItems in
+                guard let `self` = self else { return }
+                print("loadding")
+                self.arrayOfFlkrData += feedItems
+                self.collectionView?.reloadData()
+                self.loadMoreStatus = false
+                
+                }, errorCallback: { error in
+                    print(error)
+            })
+        }
+    }
 
+    
+    
+    
+    
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -70,15 +80,18 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return arrayOfImage.count
+        return arrayOfFlkrData.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlckrCollectionViewCell
     
         // Configure the cell
         cell.backgroundColor = UIColor.black
         
+        if !arrayOfFlkrData.isEmpty { cell.setData(arrayOfFlkrData[indexPath.row])}
+       
+        print("array of datat is \(arrayOfFlkrData.count)")
         return cell
     }
 
@@ -86,7 +99,7 @@ class CollectionViewController: UICollectionViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        if offsetY > contentHeight - scrollView.frame.size.height {
+        if offsetY > contentHeight - (2 * scrollView.frame.size.height) {
             loadSomeDataAndIncreaseDataLengthFunction()
             self.collectionView?.reloadData()
         }
@@ -96,7 +109,8 @@ class CollectionViewController: UICollectionViewController {
     
     func loadSomeDataAndIncreaseDataLengthFunction() {
         self.i += 1
-        print(i)
+        loadShots(page: pageNum)
+        //print("index is \(i)")
     }
     
     // MARK: UICollectionViewDelegate

@@ -31,7 +31,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-rB-ucH">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5 copy 2" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-rB-ucH">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         </imageView>
                                     </subviews>
@@ -77,4 +77,7 @@
             <point key="canvasLocation" x="12" y="-208.24587706146929"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="5 copy 2" width="800" height="600"/>
+    </resources>
 </document>
