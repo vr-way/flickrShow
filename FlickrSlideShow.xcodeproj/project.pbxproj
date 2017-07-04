@@ -638,7 +638,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BFD37E4ED11F26F918ACFC5 /* Pods-FlickrSlideShow.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = D8U3HNMNV7;
 				INFOPLIST_FILE = FlickrSlideShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -653,7 +653,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBA86991B090CEA019CA1AB5 /* Pods-FlickrSlideShow.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = D8U3HNMNV7;
 				INFOPLIST_FILE = FlickrSlideShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
