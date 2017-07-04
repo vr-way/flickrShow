@@ -61,7 +61,7 @@
 		EE6C8F321F07AD6500CAA72A /* FlickrSlideShowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrSlideShowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6C8F361F07AD6500CAA72A /* FlickrSlideShowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrSlideShowUITests.swift; sourceTree = "<group>"; };
 		EE6C8F381F07AD6500CAA72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE6C8F4B1F07C35A00CAA72A /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		EE6C8F4B1F07C35A00CAA72A /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ViewControllers/CollectionViewController.swift; sourceTree = "<group>"; };
 		EE6C8F931F09373500CAA72A /* flickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = flickrAPI.swift; path = sevices/flickrAPI.swift; sourceTree = "<group>"; };
 		EE6C8F961F09668000CAA72A /* FlickrFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrFeedItem.swift; path = Model/FlickrFeedItem.swift; sourceTree = "<group>"; };
 		EE6C8F9A1F09769500CAA72A /* FlckrCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlckrCollectionViewCell.swift; path = ViewControllers/FlckrCollectionViewCell.swift; sourceTree = "<group>"; };
