@@ -26,34 +26,19 @@ class FlickrServices {
     private init() {}
     
     
-    
-   
-    
-    
 
 func getShotsFeed(page: Int, successCallback: @escaping ([FlickrFeedItem]) -> Void, errorCallback: @escaping (Error) -> Void ) {
     
     
-   
     let url = Config.shotURL + Config.getRecent + "&api_key=" + Config.apiKey + "&page=\(page)" + "&per_page=\(Config.perPage)" + "&format=json&nojsoncallback=1"
     
-    print(url)
     
     getJSON (url: url) { response in
         switch response {
         case .success(let result):
-           
-           // print("result is \(result.array)")
-            
-            
-            
-            
-            
-            
+
             guard let array = result.array else { return }
-           //let array = result.array
            let items =  array.flatMap { mapFlickrFeedItem($0) }
-           //let items =  result["users"].arrayValue.map({$0["name"].stringValue})
             successCallback(items)
         case .error(let error):
             errorCallback(error)
@@ -70,11 +55,9 @@ func getShotsFeed(page: Int, successCallback: @escaping ([FlickrFeedItem]) -> Vo
             if let jsonString = response.result.value {
                 
                 let json = JSON(jsonString)
-                //print(json)
-                
-                let name = json["photos","photo"].arrayValue
-               // print(name)
-                let photosArray = JSON(name)
+                let photos = json["photos","photo"].arrayValue
+               
+                let photosArray = JSON(photos)
                 
                 calback(.success(photosArray))
             } else {

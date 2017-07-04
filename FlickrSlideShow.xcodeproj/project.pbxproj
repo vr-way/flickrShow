@@ -146,7 +146,7 @@
 				EE6C8F161F07AD6400CAA72A /* AppDelegate.swift */,
 				EE6C8F1A1F07AD6400CAA72A /* Main.storyboard */,
 				EE6C8F951F09662D00CAA72A /* Model */,
-				EE6C8F921F0936F100CAA72A /* services */,
+				EE6C8F921F0936F100CAA72A /* Services */,
 				EE6C8F441F07BAEF00CAA72A /* ViewControllers */,
 				EE6C8F1D1F07AD6400CAA72A /* Assets.xcassets */,
 				EE6C8F1F1F07AD6400CAA72A /* LaunchScreen.storyboard */,
@@ -182,12 +182,12 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		EE6C8F921F0936F100CAA72A /* services */ = {
+		EE6C8F921F0936F100CAA72A /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				EE6C8F931F09373500CAA72A /* flickrAPI.swift */,
 			);
-			name = services;
+			name = Services;
 			sourceTree = "<group>";
 		};
 		EE6C8F951F09662D00CAA72A /* Model */ = {
