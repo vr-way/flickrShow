@@ -52,7 +52,13 @@
                             <outlet property="delegate" destination="SJg-Dn-lg9" id="hgM-im-1Eu"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="oMS-v1-33w"/>
+                    <navigationItem key="navigationItem" id="oMS-v1-33w">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="MkG-Jv-39s">
+                            <connections>
+                                <action selector="barItem:" destination="SJg-Dn-lg9" id="n2T-r2-Fwp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgA-9o-wff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
